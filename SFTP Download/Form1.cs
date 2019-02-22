@@ -23,13 +23,13 @@ namespace SFTP_Download
 
         private void btnDownload_Click(object sender, EventArgs e)
         {
-            string host = @"ftp.watersmartsoftware.com";
-            string username = @"nweldgate";
+            string host = @"ftp.example.com";
+            string username = @"...";
 
-            string remoteDirectory = @"/downloads/";
-            string localDirectory = @"C:\Users\WERIMO-PC\Documents\";
+            string remoteDirectory = @"/...";
+            string localDirectory = @"\...";
 
-            PrivateKeyFile keyFile = new PrivateKeyFile(Application.StartupPath + @"\Resources\nweld_rsa_key.ppk");
+            PrivateKeyFile keyFile = new PrivateKeyFile(Application.StartupPath + @"...\key.ppk");
             var keyFiles = new[] { keyFile };
 
             var methods = new List<AuthenticationMethod>();
@@ -83,56 +83,56 @@ namespace SFTP_Download
 
         //private void btnCopy_Click(object sender, EventArgs e)
         //{
-    //        string host = @"ftp.watersmartsoftware.com";
-    //        string username = @"nweldgate";
+        //        string host = @"ftp.example.com";
+        //        string username = @"...";
 
-    //        string remoteDirectory = @"/downloads/";
-    //        string destinationDirectory = @"/uploads/";
+        //        string remoteDirectory = @"/...";
+        //        string localDirectory = @"\...";
 
-    //        PrivateKeyFile keyFile = new PrivateKeyFile(Application.StartupPath + @"/Resources/nweld_rsa_key.ppk");
-    //        var keyFiles = new[] { keyFile };
+        //        PrivateKeyFile keyFile = new PrivateKeyFile(Application.StartupPath + @"...\key.ppk");
+        //        var keyFiles = new[] { keyFile };
 
-    //        var methods = new List<AuthenticationMethod>();
-    //        methods.Add(new PrivateKeyAuthenticationMethod(username, keyFiles));
+        //        var methods = new List<AuthenticationMethod>();
+        //        methods.Add(new PrivateKeyAuthenticationMethod(username, keyFiles));
 
-    //        ConnectionInfo conn = new ConnectionInfo(host, 22, username, methods.ToArray());
-    //        using (var sftp = new SftpClient(conn))
-    //        {
-    //            try
-    //            {
-    //                sftp.Connect();
+        //        ConnectionInfo conn = new ConnectionInfo(host, 22, username, methods.ToArray());
+        //        using (var sftp = new SftpClient(conn))
+        //        {
+        //            try
+        //            {
+        //                sftp.Connect();
 
-    //                var files = sftp.ListDirectory(remoteDirectory);
-    //                List<DateTime> filesDate = new List<DateTime>();
-    //                filesDate.AddRange(files.Select(q => q.LastAccessTime.Date));
-    //                DateTime latest = filesDate.Max(p => p);
+        //                var files = sftp.ListDirectory(remoteDirectory);
+        //                List<DateTime> filesDate = new List<DateTime>();
+        //                filesDate.AddRange(files.Select(q => q.LastAccessTime.Date));
+        //                DateTime latest = filesDate.Max(p => p);
 
-    //                foreach (var file in files)
-    //                {
-    //                    string remoteFileName = file.Name;
+        //                foreach (var file in files)
+        //                {
+        //                    string remoteFileName = file.Name;
 
-    //                    if (!file.Name.StartsWith(".") && file.LastWriteTime.Date == latest)
-    //                    {
-    //                        sftp.ChangeDirectory(destinationDirectory);
-    //                        using (FileStream copyFile = new FileStream(remoteDirectory + remoteFileName, FileMode.Open))
-    //                        {
-    //                            sftp.BufferSize = 4 * 1024;
-    //                            sftp.UploadFile(copyFile, remoteFileName);
-    //                        }
-    //                    }
-    //                }
+        //                    if (!file.Name.StartsWith(".") && file.LastWriteTime.Date == latest)
+        //                    {
+        //                        sftp.ChangeDirectory(destinationDirectory);
+        //                        using (FileStream copyFile = new FileStream(remoteDirectory + remoteFileName, FileMode.Open))
+        //                        {
+        //                            sftp.BufferSize = 4 * 1024;
+        //                            sftp.UploadFile(copyFile, remoteFileName);
+        //                        }
+        //                    }
+        //                }
 
-    //            }
-    //            catch (Exception ex)
-    //            {
-    //                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    //            }
-    //            finally
-    //            {
-    //                sftp.Disconnect();
-    //            }
-    //        }
+        //            }
+        //            catch (Exception ex)
+        //            {
+        //                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        //            }
+        //            finally
+        //            {
+        //                sftp.Disconnect();
+        //            }
+        //        }
 
-    //    }
+        //    }
     }
 }
